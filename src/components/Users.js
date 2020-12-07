@@ -1,6 +1,7 @@
 import React, { Component, lazy, Suspense } from 'react';
 import {userService} from "../services/UserServise";
 import './user.css'
+import UserList from "./UserList";
 
 
 class Users extends Component {
@@ -11,6 +12,7 @@ class Users extends Component {
             items: [],
             checkedItems: []
         }
+        this.changeChecked = this.changeChecked.bind(this);
     }
 
     componentDidMount() {
@@ -23,10 +25,25 @@ class Users extends Component {
                 })
             });
     }
+
+    changeChecked(e, item) {
+        let obj = JSON.parse(localStorage.getItem("checked")) || [];
+        if (e.target.checked) {
+            obj.push(item);
+        } else {
+            let index;
+            obj.find((it, i) => {
+                if(it.id === item.id)
+                    index = i;
+            })
+            obj.splice(index, 1)
+        }
+        localStorage.setItem("checked", JSON.stringify(obj))
+        this.setState({checkedItems: obj})
+    }
     render() {
         const {items, checkedItems} = this.state;
 
-        const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
         let objOfChecked = {};
         let addObj = checkedItems ? checkedItems.map(item => {
             let date = new Date( item.dob );
@@ -41,34 +58,7 @@ class Users extends Component {
             <div className={'records'}>
                 <div className={'allRecord'}>
                     <h5>Employees</h5>
-                    <ul>
-                        {alphabet.map(arr => <div key={arr} className={'box'}>
-                            {arr}
-                            <ul>
-                                {items.filter(item => item.lastName[0] === arr)
-                                    .map(item => <li key={item.id} className={'userblock'}>
-                                        {item.lastName + " " + item.firstName}
-                                        <input type={'checkbox'} checked={checkedItems ? checkedItems.find(it => it.id === item.id) : false} onChange={(e) => {
-                                            //localStorage.setItem("checked", "[]")
-                                            let obj = JSON.parse(localStorage.getItem("checked")) || [];
-                                            if (e.target.checked) {
-                                                obj.push(item);
-                                            } else {
-                                                let index;
-                                                obj.find((it, i) => {
-                                                    if(it.id === item.id)
-                                                        index = i;
-                                                })
-                                                obj.splice(index, 1)
-                                            }
-                                            localStorage.setItem("checked", JSON.stringify(obj))
-                                            this.setState({checkedItems: obj})
-                                        }}/>
-                                    </li>)}
-                            </ul>
-                        </div>)}
-
-                    </ul>
+                    <UserList items={items} checkedItems={checkedItems} changeChecked={this.changeChecked}></UserList>
                 </div>
                 <div className={'checkedRecord'}>
                     <h5>Employees birsday</h5>
