@@ -26,8 +26,17 @@ class Users extends Component {
     render() {
         const {items, checkedItems} = this.state;
 
-        let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-        const monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        let objOfChecked = {};
+        let addObj = checkedItems ? checkedItems.map(item => {
+            let date = new Date( item.dob );
+            let month = date.toLocaleString('default', { month: 'long' });
+            if(objOfChecked.hasOwnProperty(month)) {
+                objOfChecked[month].push(item);
+            } else {
+                objOfChecked[month] = [item];
+            }
+        }) :  {};
         return (
             <div className={'records'}>
                 <div className={'allRecord'}>
@@ -64,10 +73,15 @@ class Users extends Component {
                 <div className={'checkedRecord'}>
                     <h5>Employees birsday</h5>
                     <hr/>
-                    {checkedItems ? checkedItems.map(item => {
-                        let date = new Date( item.dob );
-                        let month = date.toLocaleString('default', { month: 'long' });
-                        return <li>{item.lastName + " " + item.firstName + " - " + date.getDate() + " " + month + ", " + date.getFullYear() + " year"}</li>
+                    {checkedItems ? Object.keys(objOfChecked).map(item => {
+                        return <div>
+                            <p>{item}</p>
+                            {objOfChecked[item].map(it =>  {
+                                let date = new Date( it.dob );
+                                let month = date.toLocaleString('default', { month: 'long' });
+                                return <li>{it.lastName + " " + it.firstName + " - " + date.getDate() + " " + month + ", " + date.getFullYear() + " year"}</li>
+                            })}
+                        </div>
                     }) : <div></div>}
                 </div>
             </div>
