@@ -1,0 +1,32 @@
+.box {
+    margin: 5px;
+    float: left;
+    height: 350px;
+    font-weight: bold;
+    width: 170px;
+}
+.box li {
+    list-style-type: none;
+}
+.box > ul {
+    padding: 0px!important;
+    font-weight: normal;
+    margin-top: 5px;
+}
+.userblock {
+    display: flex;
+    justify-content: space-between;
+}
+.records {
+    display: flex;
+    justify-content: space-between;
+}
+.allRecord {
+    width: 50%;
+}
+.checkedRecord {
+    width: 50%;
+}
+h5 {
+    vertical-align: center;
+}
