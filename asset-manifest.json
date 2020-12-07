@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/employees/static/css/main.88441258.chunk.css",
-    "main.js": "/employees/static/js/main.b20ef0bc.chunk.js",
-    "main.js.map": "/employees/static/js/main.b20ef0bc.chunk.js.map",
-    "runtime-main.js": "/employees/static/js/runtime-main.9a48c863.js",
-    "runtime-main.js.map": "/employees/static/js/runtime-main.9a48c863.js.map",
-    "static/js/2.be1b1b6b.chunk.js": "/employees/static/js/2.be1b1b6b.chunk.js",
-    "static/js/2.be1b1b6b.chunk.js.map": "/employees/static/js/2.be1b1b6b.chunk.js.map",
-    "static/js/3.39820f52.chunk.js": "/employees/static/js/3.39820f52.chunk.js",
-    "static/js/3.39820f52.chunk.js.map": "/employees/static/js/3.39820f52.chunk.js.map",
-    "index.html": "/employees/index.html",
-    "static/css/main.88441258.chunk.css.map": "/employees/static/css/main.88441258.chunk.css.map",
-    "static/js/2.be1b1b6b.chunk.js.LICENSE.txt": "/employees/static/js/2.be1b1b6b.chunk.js.LICENSE.txt"
+    "main.css": "/Technical-task-for-Yalantis-React/static/css/main.88441258.chunk.css",
+    "main.js": "/Technical-task-for-Yalantis-React/static/js/main.b20ef0bc.chunk.js",
+    "main.js.map": "/Technical-task-for-Yalantis-React/static/js/main.b20ef0bc.chunk.js.map",
+    "runtime-main.js": "/Technical-task-for-Yalantis-React/static/js/runtime-main.566a35d1.js",
+    "runtime-main.js.map": "/Technical-task-for-Yalantis-React/static/js/runtime-main.566a35d1.js.map",
+    "static/js/2.be1b1b6b.chunk.js": "/Technical-task-for-Yalantis-React/static/js/2.be1b1b6b.chunk.js",
+    "static/js/2.be1b1b6b.chunk.js.map": "/Technical-task-for-Yalantis-React/static/js/2.be1b1b6b.chunk.js.map",
+    "static/js/3.39820f52.chunk.js": "/Technical-task-for-Yalantis-React/static/js/3.39820f52.chunk.js",
+    "static/js/3.39820f52.chunk.js.map": "/Technical-task-for-Yalantis-React/static/js/3.39820f52.chunk.js.map",
+    "index.html": "/Technical-task-for-Yalantis-React/index.html",
+    "static/css/main.88441258.chunk.css.map": "/Technical-task-for-Yalantis-React/static/css/main.88441258.chunk.css.map",
+    "static/js/2.be1b1b6b.chunk.js.LICENSE.txt": "/Technical-task-for-Yalantis-React/static/js/2.be1b1b6b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9a48c863.js",
+    "static/js/runtime-main.566a35d1.js",
     "static/js/2.be1b1b6b.chunk.js",
     "static/css/main.88441258.chunk.css",
     "static/js/main.b20ef0bc.chunk.js"
