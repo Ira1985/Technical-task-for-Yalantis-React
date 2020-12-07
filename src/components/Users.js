@@ -73,7 +73,7 @@ class Users extends Component {
                 <div className={'checkedRecord'}>
                     <h5>Employees birsday</h5>
                     <hr/>
-                    {checkedItems ? Object.keys(objOfChecked).map(item => {
+                    {checkedItems && checkedItems.length ? Object.keys(objOfChecked).map(item => {
                         return <div>
                             <p>{item}</p>
                             {objOfChecked[item].map(it =>  {
@@ -82,7 +82,7 @@ class Users extends Component {
                                 return <li>{it.lastName + " " + it.firstName + " - " + date.getDate() + " " + month + ", " + date.getFullYear() + " year"}</li>
                             })}
                         </div>
-                    }) : <div></div>}
+                    }) : <div>No selected employees</div>}
                 </div>
             </div>
         );
