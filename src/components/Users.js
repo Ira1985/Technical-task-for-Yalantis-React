@@ -2,6 +2,7 @@ import React, { Component, lazy, Suspense } from 'react';
 import {userService} from "../services/UserServise";
 import './user.css'
 import UserList from "./UserList";
+import CheckedList from "./CheckedList";
 
 
 class Users extends Component {
@@ -44,16 +45,6 @@ class Users extends Component {
     render() {
         const {items, checkedItems} = this.state;
 
-        let objOfChecked = {};
-        let addObj = checkedItems ? checkedItems.map(item => {
-            let date = new Date( item.dob );
-            let month = date.toLocaleString('default', { month: 'long' });
-            if(objOfChecked.hasOwnProperty(month)) {
-                objOfChecked[month].push(item);
-            } else {
-                objOfChecked[month] = [item];
-            }
-        }) :  {};
         return (
             <div className={'records'}>
                 <div className={'allRecord'}>
@@ -63,16 +54,7 @@ class Users extends Component {
                 <div className={'checkedRecord'}>
                     <h5>Employees birsday</h5>
                     <hr/>
-                    {checkedItems && checkedItems.length ? Object.keys(objOfChecked).map(item => {
-                        return <div>
-                            <p>{item}</p>
-                            {objOfChecked[item].map(it =>  {
-                                let date = new Date( it.dob );
-                                let month = date.toLocaleString('default', { month: 'long' });
-                                return <li>{it.lastName + " " + it.firstName + " - " + date.getDate() + " " + month + ", " + date.getFullYear() + " year"}</li>
-                            })}
-                        </div>
-                    }) : <div>No selected employees</div>}
+                    <CheckedList checkedItems={checkedItems}></CheckedList>
                 </div>
             </div>
         );
